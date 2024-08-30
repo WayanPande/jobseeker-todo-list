@@ -5,6 +5,7 @@ import Plus from "./assets/plus";
 import Pen from "./assets/pen";
 import Trash from "./assets/trash";
 import Search from "./assets/search";
+import EmptyStateImg from "./assets/empty-state.png";
 
 function App() {
   const {
@@ -97,8 +98,9 @@ function App() {
           <input
             type="text"
             className="border p-2 w-full rounded-lg shadow-sm focus:outline-none border-primary focus:ring-1 focus:ring-blue-500 focus:ring-offset-2 "
-            placeholder="Search note..."
+            placeholder="Search todo..."
             value={searchTerm}
+            // if the data is accessed from a DB or something, i should debounce this value input
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <div className="absolute top-2 right-2 text-primary bg-white">
@@ -146,6 +148,14 @@ function App() {
 
       {/* Todo List */}
       <ul className="divide-y divide-primary">
+        {filteredAndSearchedTodos.length === 0 ? (
+          <div className="mt-16 space-y-3">
+            <img src={EmptyStateImg} alt="Empty State" className="mx-auto" />
+            <p className="text-center text-gray-500">
+              You haven't added any todos yet.
+            </p>
+          </div>
+        ) : null}
         {filteredAndSearchedTodos.map((todo) => (
           <li
             key={todo.id}
