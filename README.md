@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# Vite + React + TypeScript Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a starter template using [Vite](https://vitejs.dev/), [React](https://reactjs.org/), and [TypeScript](https://www.typescriptlang.org/) with [pnpm](https://pnpm.io/).
 
-Currently, two official plugins are available:
+## Preview Link
+If you can't run the deployment server locally, you can access the project through this preview link, [Preview Link](https://wayanpande.github.io/jobseeker-todo-list/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites
 
-## Expanding the ESLint configuration
+Before you begin, ensure you have met the following requirements:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Node.js**: Install Node.js from [nodejs.org](https://nodejs.org/en/download/)
+- **pnpm**: Install pnpm globally by running the following command:
+  ```bash
+  npm install -g pnpm
+  ```
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
+  1. Clone this repository to your local machine:
+  ```bash
+  git clone https://github.com/WayanPande/jobseeker-todo-list.git
+  cd jobseeker-todo-list
+  ```
+  2. Install dependencies using pnpm:
+   ```bash
+   pnpm install
+  ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Running the Project Locally
+To start the development server, run the following command:
+```bash
+pnpm dev
+```
+This will launch the Vite development server and your project will be available at [http://localhost:5173](http://localhost:5173) by default.
+
+## Building the Project
+To create a production build, use the following command:
+```bash
+pnpm build
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+And you will see the generated file in `dist` that ready to be served.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Previewing the Build
+To preview the build locally, use the following command after building:
+```bash
+pnpm serve
 ```
+
+This will start a local server to preview the production build at [http://localhost:4173](http://localhost:4173).
+
