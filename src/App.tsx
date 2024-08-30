@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import "./index.css";
 import { useTodoStore } from "./store/todoStore";
 import Plus from "./assets/plus";
 import Pen from "./assets/pen";
